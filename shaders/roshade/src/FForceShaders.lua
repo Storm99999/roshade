@@ -1,7 +1,7 @@
 local shaders = {}
 getgenv().Config = {
 	Shaders = {
-		Name = "Shiny"
+		Name = ""
 	},
 	
 	CustomShader = {
@@ -34,7 +34,7 @@ local DurationOfTime = getgenv().Config.UnNecessary.DurationOfTime
 shaders.FSetShader = function(FError)
 	if FError == nil then
 		print("[RoShade] no errors!")
-		for _,v in pairs(workspace:GetDescendants()) do
+		for _,v in pairs(workspace:GetChildren()) do
 			if v.ClassName == "Part"
 				or v.ClassName == "SpawnLocation"
 				or v.ClassName == "WedgePart"
@@ -57,7 +57,7 @@ shaders.FSetShader = function(FError)
 					v.Reflectance = 0.36
 				end
 				
-				if FCustom then
+				if Fshader == "Custom" then
 					v.Material = FMaterial
 					v.Reflectance = FReflectance
 				end
@@ -75,5 +75,10 @@ shaders.FSetShader = function(FError)
 	end
 end
 
+spawn(function()
+	while task.wait(2) do
+		getgenv().Config.Shaders.Name = game.Players.LocalPlayer.RoShade.Shader.Value
+	end
+end)
 
 return shaders;
