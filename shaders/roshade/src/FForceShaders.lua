@@ -34,7 +34,7 @@ local DurationOfTime = getgenv().Config.UnNecessary.DurationOfTime
 shaders.FSetShader = function(FError)
 	if FError == nil then
 		print("[RoShade] no errors!")
-		for _,v in pairs(workspace:GetChildren()) do
+		for _,v in pairs(workspace:GetDescendats()) do
 			if v.ClassName == "Part"
 				or v.ClassName == "SpawnLocation"
 				or v.ClassName == "WedgePart"
