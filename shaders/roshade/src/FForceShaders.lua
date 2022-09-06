@@ -1,14 +1,35 @@
 local shaders = {}
-local Fshader = nil
+getgenv().Config = {
+	Shaders = {
+		Name = "Shiny"
+	},
+	
+	CustomShader = {
+		FCustom = false,
+		FMaterial = Enum.Material.Air,
+		FReflectance = 0
+	},
+	
+	Additional = {
+		reflectanceShiny = 1,
+		icyReflectance = 0.36
+	},
+	
+	UnNecessary = {
+		DurationOfTime = 5
+	}
+}
+
+local Fshader = getgenv().Config.Shaders.Name
 -- Custom Variables
-local FCustom = false
-local FMaterial = Enum.Material.Air
-local FReflectance = 0
+local FCustom = getgenv().Config.CustomShader.FCustom
+local FMaterial = getgenv().Config.CustomShader.FMaterial
+local FReflectance = getgenv().Config.CustomShader.FReflectance
 -- Additional Variables
-local reflectanceShiny = 1
-local icyReflectance = 0.36
+local reflectanceShiny = getgenv().Config.Additional.reflectanceShiny
+local icyReflectance = getgenv().Config.Additional.icyReflectance
 -- Not really needed but useful
-local DurationOfTime = 5
+local DurationOfTime = getgenv().Config.UnNecessary.DurationOfTime
 
 shaders.FSetShader = function(FError)
 	if FError == nil then
